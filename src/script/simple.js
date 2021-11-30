@@ -1,4 +1,6 @@
-const refs = {
+import refs from "./refs";
+
+const refsMain = {
   headerInput: document.querySelector('.header__input'),
   inputText: document.querySelector('.header__input-text'),
   iconSearch: document.querySelector('.icon-search'),
@@ -14,48 +16,69 @@ const refs = {
   logCloseBtn: document.querySelector('#log-close-btn'),
   loginBtn: document.querySelector('#login-btn'),
   
-
+  headerLibBtn: document.querySelector('#lib-home-btn'),
+  headerMainMylibBtn: document.querySelector('#my-lib-btn'),
+  headerLibrary: document.querySelector('.header-lib'),
+  headerMain: document.querySelector('.header'),
+  mainContentSection: document.querySelector('.section-main-content'),
+  libraryContentSection:document.querySelector('.section-library')
 }
 
+refsMain.headerLibBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+  refsMain.libraryContentSection.classList.add('invisible')
+  refsMain.headerMain.classList.remove('invisible')
+  refsMain.headerLibrary.classList.add('invisible')
+  refsMain.mainContentSection.classList.remove('invisible')
+})
+
+refsMain.headerMainMylibBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+refsMain.libraryContentSection.classList.remove('invisible')
+  refsMain.mainContentSection.classList.add('invisible')
+  refsMain.headerMain.classList.add('invisible')
+  refsMain.headerLibrary.classList.remove('invisible')
+})
+// console.log(refsMain.loginBtn);
 
 
 
 
-refs.headerInput.addEventListener('focus', (e) => {
+refsMain.headerInput.addEventListener('focus', (e) => {
   e.preventDefault();
   
-  refs.inputText.classList.add('invsbl');
+  refsMain.inputText.classList.add('invsbl');
 })
-refs.headerInput.addEventListener('blur', (e) => {
+refsMain.headerInput.addEventListener('blur', (e) => {
   if (e.target.value.length > 0) {
     return;
   }
-    refs.inputText.classList.remove('invsbl')
+    refsMain.inputText.classList.remove('invsbl')
   
    
 })
-  refs.iconSearch.addEventListener('click', () => {
+  refsMain.iconSearch.addEventListener('click', () => {
  
-  refs.headerInput.value = '';
-  refs.inputText.classList.remove('invsbl')
+  refsMain.headerInput.value = '';
+  refsMain.inputText.classList.remove('invsbl')
 })
-refs.singupBtn.addEventListener('click', (e) => {
+refsMain.singupBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  refs.modalReg.classList.add('visible');
+  refsMain.modalReg.classList.add('visible');
   // console.log('hello');
 })
-refs.loginBtn.addEventListener('click', (e) => {
+refsMain.loginBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  refs.modalLog.classList.add('visible');
+  refsMain.modalLog.classList.add('visible');
   // console.log('hello');
 })
-refs.regCloseBtn.addEventListener('click', (e) => {
+refsMain.regCloseBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  refs.modalReg.classList.remove('visible');
+  refsMain.modalReg.classList.remove('visible');
 })
-refs.logCloseBtn.addEventListener('click', (e) => {
+refsMain.logCloseBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  refs.modalLog.classList.remove('visible');
+  refsMain.modalLog.classList.remove('visible');
 })
 
 

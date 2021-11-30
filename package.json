@@ -1,7 +1,7 @@
 {
   "name": "parcel-project-template",
   "version": "1.1.0",
-  "description": "",
+  "description": "Включите отображение скрытых файлов и папок в проводнике своей операционной системы, иначе вы не\r сможете выбрать и скопировать себе файлы настроек проекта, имена которых начинаются с точки.",
   "main": "index.js",
   "homepage": "https://github.com/DmytroDemianenko/filmoteka.git",
   "scripts": {
@@ -26,6 +26,8 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/mobile": "^5.2.0",
     "axios": "^0.24.0",
     "cors": "^2.8.5",
     "firebase": "^9.5.0",
