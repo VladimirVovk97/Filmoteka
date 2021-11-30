@@ -1,4 +1,4 @@
-export {onTitleClick} from '../js/modal-film-description';
+export {onTitleClick} from './modal-film-description';
 import {TmdbApiService, BASE_URL, API_URL} from './apiService';
 import modalFilmDescription from '../modal-film-description.hbs'
 
