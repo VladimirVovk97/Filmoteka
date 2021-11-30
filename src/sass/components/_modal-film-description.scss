@@ -1,0 +1,312 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  transition: opacity $animation;
+
+  @include adaptive-size(tablet-break) {
+    overflow-y: scroll;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-top: 48px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: $color-main;
+
+  transform: translate(-50%, -50%), scale(1);
+  transition: transform $animation;
+
+  @include adaptive-size(mobile) {
+    width: 280px;
+  }
+
+  @include adaptive-size(tablet) {
+    width: 618px;
+    height: auto;
+    padding-top: 42px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @include adaptive-size(desktop) {
+    width: 882px;
+    height: auto;
+    padding-top: 48px;
+    padding-bottom: 41px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 1.15;
+    text-transform: uppercase;
+
+    @include adaptive-size(desktop) {
+      font-size: 30px;
+      line-height: 1.16;
+    }
+  }
+
+  &.dark-theme {
+    background-color: $bg-dark-modal-color;
+    color: $text-dark-theme-color;
+  }
+
+  &__content {
+    @include adaptive-size(tablet) {
+      display: flex;
+    }
+  }
+}
+
+// -----изображение
+.thumb {
+  width: 240px;
+  height: 356px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  @include adaptive-size(tablet) {
+    width: 264px;
+    height: 373px;
+  }
+  @include adaptive-size(desktop) {
+    width: 396px;
+    height: 477px;
+  }
+}
+
+.modal__image {
+  width: 100%;
+  height: auto;
+}
+
+// ------текстовая часть
+.wrap-modal {
+  display: flex;
+
+  & ul:not(:last-child) {
+    margin-right: 80px;
+
+    @include adaptive-size(mobile) {
+      margin-right: 20px;
+    }
+
+    @include adaptive-size(tablet) {
+      margin-right: 40px;
+    }
+
+    @include adaptive-size(desktop) {
+      margin-right: 80px;
+    }
+  }
+}
+
+.content__text {
+  margin-top: 30px;
+  width: 240px;
+
+  @include adaptive-size(tablet) {
+    margin-left: 30px;
+    margin-top: 0px;
+    width: 264px;
+  }
+
+  @include adaptive-size(desktop) {
+    width: 396px;
+  }
+}
+
+.modal__list {
+  margin-bottom: 20px;
+  font-size: 12px;
+  line-height: 1.33;
+  color: $modal-subtitle-color;
+
+  &--keys {
+    width: 70px;
+  }
+
+  & li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.modal__list--values {
+  color: inherit;
+
+  & li:nth-child(-n + 2) {
+    line-height: 1.16;
+  }
+}
+
+.modal-list__item {
+  display: flex;
+
+  & span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.modal__rating {
+  line-height: 1.16;
+  height: 16px;
+  width: 36px;
+  background-color: $bg-second-color;
+  border-radius: $radius;
+  color: $primary-text-color;
+
+  &--orange {
+    color: $color-main;
+    line-height: 1.16;
+    height: 16px;
+    width: 36px;
+    background-color: $btn-bg-accent;
+    border-radius: $radius;
+  }
+
+  &--slash {
+    line-height: 1.16;
+    height: 16px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+}
+
+.modal-text__title {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+}
+
+.modal-text__item {
+  margin-bottom: 21px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+}
+
+.list-buttons {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+  & li {
+    margin-right: 15px;
+  }
+}
+
+.button-modal {
+  margin: 10px;
+  padding-top: 14px;
+  padding-bottom: 12px;
+  border-radius: 4px;
+  min-width: 112px;
+  min-height: 44px;
+
+  border: 1px solid $primary-text-color;
+  border-radius: 5px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.33;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  transition: background-color $animation;
+
+  @include adaptive-size(tablet) {
+    min-width: 125px;
+    font-size: 12px;
+  }
+
+  @include adaptive-size(desktop) {
+    min-width: 136px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $btn-bg-accent;
+    color: $color-main;
+    border: none;
+  }
+}
+
+.button-modal--orange {
+  background: $btn-bg-accent;
+  border: none;
+  color: $color-main;
+
+  transition: background-color $animation;
+
+  &:hover,
+  &:focus {
+    background-color: inherit;
+    border: 1px solid $primary-text-color;
+    color: $primary-text-color;
+  }
+}
+
+.button-modal--close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.close__svg {
+  fill: currentColor;
+
+  transition: fill $animation;
+
+  &:hover,
+  &:focus {
+    fill: $btn-bg-accent;
+  }
+}
+
+.close__svg.dark-theme {
+  fill: $white-color;
+
+  &:hover,
+  &:focus {
+    fill: $btn-bg-accent;
+  }
+}

@@ -1,0 +1,52 @@
+
+<div class="thumb" data-id="{{id}}">
+    <img class="modal__image" src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt="" />
+</div>
+<div class="content__text">
+    {{#if original_title}}
+    <h2 class="modal__title">{{original_title}}</h2>
+    {{/if}}
+    {{#if name}}
+    <h2 class="modal__title">{{name}}</h2>
+    {{/if}}
+    
+    <div class="wrap-modal">
+        <ul class="modal__list modal__list--keys">
+            <li>Vote / Votes</li>
+            <li>Popularity</li>
+            <li>Original Title</li>
+            <li>Genre</li>
+        </ul>
+        <ul class="modal__list modal__list--values">
+            <li class="modal-list__item">
+                <span class="modal__rating--orange">{{vote_average}}</span>
+                <span class="modal__rating--slash"> /</span>
+                <span class="modal__rating">{{vote_count}}</span>
+            </li>
+            <li>{{popularity}}</li>
+            <li>{{#if original_title}}
+                <p>{{original_title}}</p>
+                {{/if}}
+                {{#if name}}
+                <p>{{name}}</p>
+                {{/if}}
+            </li>
+            <li>{{genres.name}}</li>
+        </ul>
+    </div>
+    <div class="modal-text">
+        <h3 class="modal-text__title">About</h3>
+        <p class="modal-text__item">{{overview}}</p>
+    </div>
+    <ul class='list-buttons'>
+        <li>
+            <button type='submit' class='button-modal button-modal--orange' id='watchedInModal'>add to watched</button>
+        </li>
+        <li>
+            <button type='submit' class='button-modal' id='queueInModal'>add to queue</button>
+        </li>
+        <li>
+            <button type='submit' class='button-modal button-modal--trailer' id='trailer'>trailer</button>
+        </li>
+    </ul>
+</div>

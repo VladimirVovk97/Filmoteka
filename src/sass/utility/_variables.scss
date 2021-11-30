@@ -1,0 +1,38 @@
+$color-main: #ffffff;
+//background
+$secondary-bg: #0000008f;
+$bg-second-color: #f7f7f7;
+$bg-dark-modal-color: #333333;
+//background button
+$btn-bg-accent: #ff6b01;
+
+//accent color
+$color-accent: #ff6b08;
+$color-warning-accent: #ff001b;
+//text color
+$primary-text-color: #000000;
+$secondary-text-color: #000000;
+$third-text-color: #545454;
+$text-dark-theme-color: rgba(255, 255, 255, 0.8);
+$modal-subtitle-color: #8c8c8c;
+$white-color: #ffffff;
+//Main fonts
+$main-font: 'Roboto', sans-serif;
+$main-font-size: 12px;
+$secondary-font-size: 14px;
+
+//Min-width
+$mobileContainer: 320px;
+$tabletContainer: 768px;
+$desktopContainer: 1024px;
+
+//Breakpoints
+$mobileBreakpoint: 767.9px;
+$tabletBreakpoint: 768px;
+$desktopBreakpoint: 1024px;
+
+//Animation
+$animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+//Radius
+$radius: 5px;

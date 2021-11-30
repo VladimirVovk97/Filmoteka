@@ -1,0 +1,45 @@
+<header class="header">
+  <div class="container header__container">
+    
+    <nav class="header__nav">
+      <div class="site-name">
+        
+        <a href="./index.html" class="main-icon-link">
+          <svg class="header__icon">
+            <use href="/img/icons.svg#icon-film"></use>
+          </svg>
+          <h1 class="header__title">Filmoteka</h1></a>
+      </div>
+      <ul class="header__nav-list">
+        <li class="header__list-item"><a href="/index.html" class="header__link active">home</a> </li>
+        <li class="header__list-item invisible">
+          <a href="pages/my-library-page.html" class="header__link " id="my-lib-btn">my library</a> 
+        </li>
+        <li class="header__list-item"> 
+          <button type="button" class="header__btn" id="singup-btn">Singup</button>
+        </li>
+        <li class="header__list-item">
+          <button type="button" class="header__btn" id="login-btn ">Login</button>
+         </li>
+        <!-- <li class="header__list-item invisible">
+          <button type="button" class="header__btn" id="user">User</button> 
+        </li> -->
+        <!-- <li class="header-lib__item"><button type="button" id="just-btn">BTN</button></li> -->
+      </ul>
+    </nav>
+    <form class="header__form">
+      <label id="label" for="input">
+          <svg class="header__icon icon-search">
+            <use href="/img/icons.svg#icon-search"></use>
+          </svg>
+       
+        <input type="text" class="header__input" id="input" name=query>
+        <span class="header__input-text">Поиск фильмов</span>
+      </label>
+      <span class="wrong-request is-hidden">Search result not successful. Enter the correct movie name</span>
+
+    </form>
+  
+    
+  </div>
+</header>
