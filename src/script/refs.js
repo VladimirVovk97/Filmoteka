@@ -13,9 +13,10 @@ export default function refs() {
   logoutBtnCont: document.querySelector('#logout'),
     logoutBtn: document.querySelector('#logout-btn'),
   
-   
-    
-  filmCard: document.querySelector('.film-card__img'),
+    createCardMovie: document.querySelector('.modal__content'),
+    cards: document.querySelector('.collection-lib'),
+    filmCards: document.querySelector('.collection'),
+  filmCard: document.querySelector('.film-card'),
     filmTitle: document.querySelector('.film-card__title'),
   
      modalReg: document.querySelector('#modal'),
