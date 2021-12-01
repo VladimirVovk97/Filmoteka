@@ -1,8 +1,8 @@
 const axios = require('axios').default;
 import elements from './refs'
 import singInUser from './singInWithPassword'
-import TmdbApiService from '../.partials/js/apiService';
-  const tmdbApiService = new TmdbApiService();
+import ApiService from '../.partials/js/apiService';
+  const apiService = new ApiService();
 const refs = elements();
 var PNotify = require('@pnotify/core');
 var PNotifyMobile = require('@pnotify/mobile');
@@ -10,46 +10,71 @@ PNotify.defaultModules.set(PNotifyMobile, {});
 PNotify.defaults.delay = 1000;
 let loggedStatus = localStorage.getItem('logged');
 
-const addFilmsIdsInBd = (name, token, filmName, filmId) => {
+const addFilmsInQueue = (name, token, filmName, filmId) => {
    
-  return axios.patch(`https://films-watch-default-rtdb.europe-west1.firebasedatabase.app/users/${name}.json?auth=${token}`, {
+  
+  return axios.patch(`https://films-watch-default-rtdb.europe-west1.firebasedatabase.app/users/${name}/queue.json?auth=${token}`, {
     
     [filmName] : filmId,
 
   })
 }
-addFilmsInQueue()
-// fetchFilmsFromApi(94605).then(console.log)
-// function fetchFilmsFromApi(id) {
-//   // return axios.get(`https://api.themoviedb.org/3/movie/94605/external_ids?api_key=070151ea430b4e74dbca9bca592b262c`)
-//   return axios.get(`https://api.themoviedb.org/3/find/tt0323352?api_key=070151ea430b4e74dbca9bca592b262c&language=en-US&external_source=imdb_id`)
-// }
+const addFilmsInWatched = (name, token, filmName, filmId) => {
+   
+  
+  return axios.patch(`https://films-watch-default-rtdb.europe-west1.firebasedatabase.app/users/${name}/watched.json?auth=${token}`, {
+    
+    [filmName] : filmId,
 
-function addFilmsInQueue () {
-  if (loggedStatus) {
-  document.querySelector('.collection').addEventListener('click', (e) => {
-    let filmId = e.target.dataset.id;
-    let accNameFromLocal = localStorage.getItem('accName');
-        let tokenFromLocal = localStorage.getItem('token');
+  })
+}
+refs.createCardMovie.addEventListener('click', onCardClick)
+function onCardClick() {
+  document.querySelector('#queueInModal').addEventListener('click', onAddToQueueBtnClick)
+  document.querySelector('#watchedInModal').addEventListener('click', onAddToWatchedBtnClick)
+}
+function onAddToWatchedBtnClick(event) {
+   event.preventDefault();
+  // console.log(event.currentTarget.closest('li'));
+  apiService.id = localStorage.getItem('currentId')
+  
+  // console.log(apiService.id);
 
-    tmdbApiService.fetchFilms().then(response => response.find((id) => {
-        
-      if (id.id == filmId) {
-        
-        if (id.title === undefined) {
-          addFilmsIdsInBd(accNameFromLocal, tokenFromLocal, id.name, filmId)
-        } else {
-          addFilmsIdsInBd(accNameFromLocal, tokenFromLocal, id.title, filmId)
-        }
-      }
-    }))
+  apiService.fetchDescribeMovie().then(res => {
+    
+    if (loggedStatus) {
+  
+      let accNameFromLocal = localStorage.getItem('accName');
+      let tokenFromLocal = localStorage.getItem('token');
+console.log(res.title, res.id);
+      addFilmsInWatched(accNameFromLocal, tokenFromLocal, res.title, res.id)
           
-      })
-        
+    }
+  }
+  )
 }
+function onAddToQueueBtnClick(event) {
+  event.preventDefault();
+  // console.log(event.currentTarget.closest('li'));
+  apiService.id = localStorage.getItem('currentId')
+  
+  // console.log(apiService.id);
+
+  apiService.fetchDescribeMovie().then(res => {
+    
+    if (loggedStatus) {
+  
+      let accNameFromLocal = localStorage.getItem('accName');
+      let tokenFromLocal = localStorage.getItem('token');
+console.log(res.title, res.id);
+      addFilmsInQueue(accNameFromLocal, tokenFromLocal, res.title, res.id)
+          
+    }
+  }
+  )
 }
-
-
+  
+     
 
 (function checkLogin() {
   if (loggedStatus === 'true') {
@@ -60,7 +85,8 @@ function addFilmsInQueue () {
 
 refs.logoutBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  
+  localStorage.setItem('currentId', '')
+  refs.cards.innerHTML = ''
   userAccButtonInvisible();
   localStorage.setItem('logged', false)
 })
@@ -77,6 +103,7 @@ refs.logSbmtBtn.addEventListener('click', (e) => {
       localStorage.setItem('accName', data.displayName)  
       localStorage.setItem('logged', 'true');
       refs.modalLog.classList.remove('visible');
+      
       PNotify.alert({ text: `Welcome, ${data.displayName}` });
    
     }).catch(err => {
