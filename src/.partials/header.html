@@ -11,20 +11,20 @@
           <h1 class="header__title">Filmoteka</h1></a>
       </div>
       <ul class="header__nav-list">
-        <li class="header__list-item"><a href="/index.html" class="header__link active">home</a> </li>
-        <li class="header__list-item invisible">
-          <a href="pages/my-library-page.html" class="header__link " id="my-lib-btn">my library</a> 
+        <li class="header__list-item"><button class="header__btn active" id="main-home-btn">home</button> </li>
+        <li class="header__list-item invisible" id="my-lib-btn">
+          <button class="header__btn" type="button">my library</button> 
         </li>
-        <li class="header__list-item"> 
-          <button type="button" class="header__btn" id="singup-btn">Singup</button>
+        <li class="header__list-item" id="singup-btn"> 
+          <button type="button" class="header__btn" >Singup</button>
         </li>
-        <li class="header__list-item">
-          <button type="button" class="header__btn" id="login-btn ">Login</button>
+        <li class="header__list-item" id="login-btn">
+          <button type="button" class="header__btn" >Login</button>
          </li>
-        <!-- <li class="header__list-item invisible">
-          <button type="button" class="header__btn" id="user">User</button> 
+        <!-- <li class="header__list-item invisible" id="user">
+          <button type="button" class="header__btn" >User</button> 
         </li> -->
-        <!-- <li class="header-lib__item"><button type="button" id="just-btn">BTN</button></li> -->
+        <li class="header__list-item invisible" id="logout"><button type="button"  class="header__btn" id="logout-btn">Logout</button></li>
       </ul>
     </nav>
     <form class="header__form">
@@ -33,7 +33,9 @@
             <use href="/img/icons.svg#icon-search"></use>
           </svg>
        
-        <input type="text" class="header__input" id="input" name=query>
+
+        <input type="text" class="header__input" id="input" required minlength="1" name="query">
+
         <span class="header__input-text">Поиск фильмов</span>
       </label>
       <span class="wrong-request is-hidden">Search result not successful. Enter the correct movie name</span>
