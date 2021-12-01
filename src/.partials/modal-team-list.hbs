@@ -1,11 +1,24 @@
+<div class='backdrop' id='backdrop'>{{{this}}}</div>
 
-<div class="ourteam__container">
+      <div class='modal'>
+  <div class='modal__content'>
+  </div>
+  <button type='button' data-action='close-modal' class='modal__close-button close-button-js' id='close-modal' aria-label="close">
+    <svg class='modal__close-button-svg close-button-js'>
+      <use class="close-button-js" href={{{svg}}}#icon-close-modal></use>
+    </svg>
+    </button>
+
+      <div class="ourteam__container">
+    
+</div>
     <div class="title-wrapper">
         <a class="ref__github" href="https://github.com/#" target="_blank"
             rel="noreferrer noopener" aria-label="Our Github">
             <img class="goit-logo" src="https://goit.ua/wp-content/themes/2/images/Layer.png" alt="GoIT"
                 title="Our Github" loading="lazy" width='274' height='398'>
         </a>
+       
         <h2 lang="en" class="ourteam__title">JS 14</h2>
     </div>
     <div class="ourteam__content">
@@ -19,14 +32,27 @@
                 </div>
                 <p lang="en" class="ourteam__subtitle">{{name}}</p>
                 <p lang="en" class="ourteam__text text">{{position}}</p>
+                
 
             </li>
             {{/each}}
         </ul>
     </div>
-    <button type='button' data-action='close-modal' class='modal__close-button' aria-label="close">
+    
+        
+        
+          <span class="material-icons material-icons--width">
+            highlight_off
+          </span>
+        
+    <!--<button type='button' data-action='close-modal' class='modal__close-button' aria-label="close">
         <svg class='modal__close-button-svg'>
-            <use href={{{icon-footer}}}#icon-close-modal></use>
+            <use href={{{svg}}}#icon-close-modal></use>
         </svg>
-    </button>
+    </button>-->
 </div>
+  
+  
+
+
+
