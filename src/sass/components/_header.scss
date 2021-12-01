@@ -20,6 +20,8 @@
   overflow: hidden;
   pointer-events: none;
   position: absolute;
+  width: 0;
+  height: 0;
   z-index: -10;
 }
 .header {
@@ -241,11 +243,10 @@
     margin-top: 22px;
     color: #ff001b;
     opacity: 1;
-    
   }
 }
-.wrong-request.is-hidden{
+.wrong-request.is-hidden {
   transition: opacity 350ms linear;
-    pointer-events: none;
-    opacity: 0;
+  pointer-events: none;
+  opacity: 0;
 }
