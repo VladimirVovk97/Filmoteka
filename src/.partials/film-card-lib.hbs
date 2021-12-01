@@ -1,5 +1,23 @@
-{{#each filmsNames}}
+{{!-- {{#each filmsNames}}
 <li class="film-card-lib" data-action="">
-   <span class="film-card-lib__name">{{this}}</span>
+   <button class="film-card-lib__name" id="lib-film-btn" data-name="lib-film-btn">{{this}}</button>
+</li>
+{{/each}} --}}
+
+{{#each this}}
+<li class="film-card" data-overview='{{overview}}' data-title='{{title}}' data-name='{{name}}'
+   data-vote='{{vote_average}}' data-popularity='{{popularity}}' data-genre='{{genre_ids}}'
+   data-src='https://image.tmdb.org/t/p/w500{{poster_path}}' data-votes='{{vote_count}}' data-id='{{id}}'>
+   <div class="">
+      <img class="film-card__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{backdrop_path}}"
+         width="100%" data-id="{{id}}" />
+      <h2 class="film-card__title">{{title}} {{name}}</h2>
+      <p class="film-card__text">
+         <span>{{genre_ids}}</span>
+         |
+         <span>{{release_date}}{{first_air_date}}</span>
+         <span class="film-card__vote">{{vote_average}}</span>
+      </p>
+   </div>
 </li>
 {{/each}}

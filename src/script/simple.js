@@ -11,7 +11,7 @@ const refsMain = {
   singupBtn: document.querySelector('#singup-btn'),
   
   
-  
+  containerMainLib : document.querySelector('.container-main-lib'),
   modalLog: document.querySelector('#modal-log'),
   logCloseBtn: document.querySelector('#log-close-btn'),
   loginBtn: document.querySelector('#login-btn'),
@@ -28,6 +28,7 @@ const refsMain = {
 refsMain.headerLibBtn.addEventListener('click', (e) => {
   e.preventDefault()
   refsMain.libraryContentSection.classList.add('invisible')
+  refsMain.containerMainLib.classList.add('invisible')
   refsMain.headerMain.classList.remove('invisible')
   refsMain.headerLibrary.classList.add('invisible')
   refsMain.mainContentSection.classList.remove('invisible')
@@ -36,6 +37,8 @@ refsMain.headerLibBtn.addEventListener('click', (e) => {
 
 refsMain.headerMainMylibBtn.addEventListener('click', (e) => {
   e.preventDefault()
+    refsMain.containerMainLib.classList.remove('invisible')
+
 refsMain.libraryContentSection.classList.remove('invisible')
   refsMain.mainContentSection.classList.add('invisible')
   refsMain.headerMain.classList.add('invisible')
