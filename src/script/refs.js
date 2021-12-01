@@ -14,6 +14,7 @@ export default function refs() {
     logoutBtn: document.querySelector('#logout-btn'),
   
     createCardMovie: document.querySelector('.modal__content'),
+    libCardModalBtn: document.querySelector('[lib-film-btn]'),
     cards: document.querySelector('.collection-lib'),
     filmCards: document.querySelector('.collection'),
   filmCard: document.querySelector('.film-card'),

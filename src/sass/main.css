@@ -566,12 +566,16 @@ body {
   }
 }
 
-.collection {
+.collection,
+.collection-lib {
   margin-bottom: -20px;
 }
 
 @media screen and (min-width: 768px) {
-  .collection {
+
+  .collection,
+  .collection-lib {
+
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -594,15 +598,27 @@ body {
   }
 }
 
+
+.film-card-lib__name {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .collection-lib {
   color: green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+
 }
 
 .collection-lib .film-card-lib:not(:last-child) {
@@ -615,7 +631,9 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
-  height: 100vh;
+
+  min-height: 100vh;
+
 }
 
 @media screen and (min-width: 320px) {
@@ -1535,6 +1553,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+
 }
 
 @media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
@@ -1544,6 +1563,7 @@ body {
     background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(0, 0, 0, 0.5)), url("/img/library-bg-320x2.jpg");
   }
 }
+
 
 @media (min-width: 321px) {
   .header-lib__container {

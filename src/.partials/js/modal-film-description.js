@@ -19,7 +19,7 @@ refs.cardsMovieList.addEventListener('click', onPictureClick);
 refs.closeModal.addEventListener('click', onCloseModalClick);
 
 // вызов
-function onTitleClick(event) {
+export default function onTitleClick(event) {
     event.preventDefault();
   api.id = event.target.closest('li').dataset.id;
   api.fetchDescribeMovie()

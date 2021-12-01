@@ -7,10 +7,17 @@
     padding-bottom: 60px;
   }
 }
+.film-card-lib__name {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .collection-lib {
   color: green;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   .film-card-lib:not(:last-child) {
     margin-bottom: 20px;
   }
@@ -22,7 +29,7 @@
   padding-right: 20px;
 
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   @media screen and (min-width: 320px) {
     width: 320px;
