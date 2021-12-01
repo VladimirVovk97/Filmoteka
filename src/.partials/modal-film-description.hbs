@@ -31,7 +31,9 @@
                 <p>{{name}}</p>
                 {{/if}}
             </li>
-            <li>{{genres.name}}</li>
+            <li>{{#each genres}}
+            {{name}},
+            {{/each}}</li>
         </ul>
     </div>
     <div class="modal-text">
