@@ -103,13 +103,14 @@ refs.logSbmtBtn.addEventListener('click', (e) => {
       localStorage.setItem('accName', data.displayName)  
       localStorage.setItem('logged', 'true');
       refs.modalLog.classList.remove('visible');
-      
+      alert(`Welcome, ${data.displayName}`)
       PNotify.alert({ text: `Welcome, ${data.displayName}` });
    
     }).catch(err => {
       if (err.request) {
         clearInput();
         console.log(err.request);
+        alert(`Welcome, ${data.displayName}`)
       PNotify.alert({text: 'Something wrong!'});
       }      
     });
