@@ -1,14 +1,15 @@
 .modal-reg {
+  z-index: 15;
   @media (max-width: 420px) {
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     pointer-events: none;
   }
   @media (min-width: 421px) {
     background-color: rgba(rgb(150, 150, 150), 0.5);
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -19,7 +20,7 @@
   }
   pointer-events: none;
   opacity: 0;
-  overflow: hidden;
+
   transition: opacity 250ms linear;
   position: relative;
   .close-btn {
@@ -105,6 +106,6 @@
 }
 .visible {
   opacity: 1;
-  overflow: visible;
+  overflow: hidden;
   pointer-events: visible;
 }

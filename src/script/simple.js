@@ -21,7 +21,8 @@ const refsMain = {
   headerLibrary: document.querySelector('.header-lib'),
   headerMain: document.querySelector('.header'),
   mainContentSection: document.querySelector('.section-main-content'),
-  libraryContentSection:document.querySelector('.section-library')
+  libraryContentSection: document.querySelector('.section-library'),
+  pagin: document.querySelector('.tui-pagination')
 }
 
 refsMain.headerLibBtn.addEventListener('click', (e) => {
@@ -30,6 +31,7 @@ refsMain.headerLibBtn.addEventListener('click', (e) => {
   refsMain.headerMain.classList.remove('invisible')
   refsMain.headerLibrary.classList.add('invisible')
   refsMain.mainContentSection.classList.remove('invisible')
+  refsMain.pagin.classList.remove('invisible')
 })
 
 refsMain.headerMainMylibBtn.addEventListener('click', (e) => {
@@ -38,6 +40,7 @@ refsMain.libraryContentSection.classList.remove('invisible')
   refsMain.mainContentSection.classList.add('invisible')
   refsMain.headerMain.classList.add('invisible')
   refsMain.headerLibrary.classList.remove('invisible')
+  refsMain.pagin.classList.add('invisible')
 })
 // console.log(refsMain.loginBtn);
 
