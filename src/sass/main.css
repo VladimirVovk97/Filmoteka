@@ -594,12 +594,28 @@ body {
   }
 }
 
+.collection-lib {
+  color: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.collection-lib .film-card-lib:not(:last-child) {
+  margin-bottom: 20px;
+}
+
 .container-main-lib {
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
+  height: 100vh;
 }
 
 @media screen and (min-width: 320px) {
