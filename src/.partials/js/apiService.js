@@ -30,7 +30,8 @@ async fetchSearch() {
 async fetchDescribeMovie() {
   const response = await fetch(`${BASE_URL}/3/movie/${this.id}?api_key=${API_URL}&language=${this.language}`); 
    const data = await response.json();
-   console.log(data);
+  //  console.log(data);
+  localStorage.setItem('currentId', data.id)
    return data;
    
   }

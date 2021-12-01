@@ -12,5 +12,6 @@ import './sass/main.scss';
 import './script/login'
 import './script/registration'
 import './script/simple'
+import './script/addFilmsInLibQueue'
 
 
