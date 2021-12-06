@@ -56,12 +56,14 @@ refs.movieContent.src = '';
 // при клике на бэкдроп закрывается модалка
 function onModalClick(evt) {
 if (refs.modalRef === evt.target) {
+  onMovieDescriptionDetailesClose();
   onCloseModalClick();
 }
 }
 // при клике на ESC закрывается модалка
 document.addEventListener('keydown', e => {
 if (e.key === 'Escape') {
+  onMovieDescriptionDetailesClose();
   onCloseModalClick();
 }
 });
