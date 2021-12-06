@@ -146,15 +146,14 @@ function normalRatingYearGenres(data) {
       };
    
 // пагинация
-function showMovies(movies) {
-  refs.galleryList.innerHTML = imgTemp(movies);
-}
 
 pagination.on('afterMove', showNewPage);
 
+
 async function showNewPage(event) {
   api.page = event.page;
-  const movies = await api.fetchFilms();
-
-  showMovies(movies.results);
-  btnScroll()}
+  await api.fetchFilms()
+  .then (data=>{refs.galleryList.innerHTML = "";
+  onCreateMarkup(data)
+  btnScroll()});
+};
