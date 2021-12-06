@@ -20,13 +20,16 @@ export default function getRefs() {
 const genresArrayStr = [];
 api
   .fetchGenres()
-  .then(genres => {
-    genres.forEach(el => {
-      genresArrayStr.push(el);
-    });
+    .then(genres => {
+      genres.forEach(el => {
+        genresArrayStr.push(el);
+        console.log(genres)
+      });
+     
   })
+  
   .catch(onError);
-
+console.log(genresArrayStr)
 // Заменяет значение жанра на строку
 function onRemoveGenres(data) {
   data.forEach(el => {
@@ -77,6 +80,7 @@ function onSliceNumber(release) {
 function normalRatingYearGenres(data) {
     onFilmReleaseYear(data.results);
     onRemoveGenres(data.results);
+    
   }
   
   function onCreateMarkup(data) {
@@ -139,7 +143,7 @@ function normalRatingYearGenres(data) {
           refs.error.classList.add('is-hidden')
         }
 
-      }
+      };
    
 // пагинация
 function showMovies(movies) {
@@ -153,5 +157,4 @@ async function showNewPage(event) {
   const movies = await api.fetchFilms();
 
   showMovies(movies.results);
-  btnScroll();
-}
+  btnScroll()}
